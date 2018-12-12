@@ -14,10 +14,9 @@ feature"user can search by zip code" do
     # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
     expect(page).to have_css(".station", count:10)
 
-
     within(first(".station")) do
       within(".distance") do
-        expect(page).to be_between(0, 6).inclusive
+        expect(contents).to be_between(0, 6).inclusive
       end
     # And the stations should be limited to Electric and Propane
       expect(page).to have_content("Fuel Types: ELEC")

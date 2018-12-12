@@ -2,10 +2,15 @@
 
 <% @facade.stations.each do |station| %>
   <ul class="station">
-    <li class='name'>Name: <%= station.name %></liv>
-    <li class='address'>Address: <%= station.address %></liv>
-    <li class='fuel'>Fuel Types: <%= station.fuel_type %></liv>
-    <li class='distance'>Distance: <%= station.distance %></liv>
-    <li class='access'>Access Times: <%= station.access_times %></liv>
+    Name:
+    <li class='name'><%= station.name %></liv><br>
+    Address:
+    <li class='address'><%= station.address %></liv><br>
+    Fuel Types:
+    <li class='fuel'><%= station.fuel_type %></liv><br>
+    Distance:
+    <li class='distance'><%= station.distance %></liv><br>
+    Access Times:
+    <li class='access'><%= station.access_times %></liv><br>
   </ul>
 <% end %>
