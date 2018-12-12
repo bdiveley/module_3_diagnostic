@@ -12,8 +12,21 @@ feature"user can search by zip code" do
     # Then I should be on page "/search"
     expect(current_path).to eq(search_path)
     # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
-    expect(page).to have_content)
+    expect(page).to have_css(".station", count:10)
+
+    within(".station") do
+      #adjust this test later
+      expect(page).not_to have_content("Distance: 10")
     # And the stations should be limited to Electric and Propane
+      expect(page).to have_content("Fuel Types: Electric")
+      expect(page).to have_content("Fuel Types: Propane")
+      expect(page).not_to have_content("Fuel Types: Coal")
     # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
+      expect(page).to have_content("Name:")
+      expect(page).to have_content("Address:")
+      expect(page).to have_content("Fuel Types:")
+      expect(page).to have_content("Distance:")
+      expect(page).to have_content("Access Times:")
+    end
   end
 end
